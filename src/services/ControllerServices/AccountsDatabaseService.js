@@ -1,4 +1,4 @@
-const useraccount = require("../../models/useraccount");
+const useraccount = require("../../../models/useraccount");
 const { enlistEmptyProperties } = require("../../utils/utility");
 
 function createUserAccount(body){

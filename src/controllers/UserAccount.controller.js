@@ -1,4 +1,3 @@
-const UserAccountModel = require("../models/useraccount");
 const { createUserAccount } = require("../services/ControllerServices/AccountsDatabaseService");
 
 module.exports = {

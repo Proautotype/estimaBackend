@@ -6,11 +6,11 @@ const cors = require("cors");
 require("dotenv").config();
 const { testDBConnection, DBsequelize, ShowcardMemberModel, ShowCardModel, ShowcardScoreBoardModel, ShowCardSessionRegistryModel } = require("./DB/index.js");
 const { uuid } = require('uuidv4');
-const DatabaseService = require("./services/DatabaseService");
-const showcard_router = require("./Routers/showcard.router.js");
-const ShowcardSocket = require("./SocketRouters/Showcard.socket.js");
-const EmailService = require("./services/EmailService.js");
-const UserAccountRouter = require("./Routers/account.router.js");
+const DatabaseService = require("./src/services/DatabaseService");
+const showcard_router = require("./src/Routers/showcard.router.js");
+const ShowcardSocket = require("./src/SocketRouters/Showcard.socket.js");
+const EmailService = require("./src/services/EmailService.js");
+const UserAccountRouter = require("./src/Routers/account.router.js");
 //server app setup and registries
 const app = express();
 app.use(cors());

@@ -1,5 +1,5 @@
 const { uuid } = require('uuidv4');
-const { ShowCardModel, ShowcardMemberModel, ShowCardSessionRegistryModel, DBsequelize, ShowcardScoreBoardModel, QueryTypes } = require('../DB');
+const { ShowCardModel, ShowcardMemberModel, ShowCardSessionRegistryModel, DBsequelize, ShowcardScoreBoardModel, QueryTypes } = require('../../DB');
 const EmailService = require('./EmailService');
 require('dotenv').config();
 const emailServer = new EmailService();
