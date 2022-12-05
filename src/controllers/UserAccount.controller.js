@@ -1,12 +1,12 @@
 const { createUserAccount } = require("../services/ControllerServices/AccountsDatabaseService");
 
 module.exports = {
-    createUser: async (req, res) => {     
-        console.dir(req.body)   
+    createUser: async (req, res) => {  
         try {            
-           const created =  createUserAccount(req.body);
+           const created = await createUserAccount(req.body);
            if(created.status === "error"){
             res.status(401).send(created.message);
+            return
            }
            res.status(201).send("created");
         } catch (error) {

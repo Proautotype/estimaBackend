@@ -1,22 +1,32 @@
-const useraccount = require("../../../models/useraccount");
+//npm dependencies
+//project dependencies
+const { joiAccountDetailValidator } = require("../../utils/joiValidators/AccountDetailsValidator");
 const { enlistEmptyProperties } = require("../../utils/utility");
 
-function createUserAccount(body){
+async function createUserAccount(body) {
     //check and balance your body
     const checked = enlistEmptyProperties(body);
-    console.log("checked ", checked)
-    if(checked.length > 0){
+    if (checked.length > 0) {
         return {
-            status:"error",
-            message:checked.toLocaleString()
+            status: "error",
+            message: checked.toLocaleString()
         }
     }
-    useraccount().create({
-        email: body?.mail, 
-        phone: body?.phone,
-        accountType: body?.plan,
-        accountName: body?.organization
-    })
+    //if none is empty validate
+    const afterValidate = joiAccountDetailValidator(body);  
+    if(typeof afterValidate['error'] !== "undefined"){
+        //send error details
+        return {
+            status: "error",
+            message: afterValidate['error']['details'][0]['message']
+        };
+    }
+    // useraccount().create({
+    //     email: body?.email, 
+    //     phone: body?.phone,
+    //     accountType: body?.plan,
+    //     accountName: body?.organization
+    // })
 }
 
 module.exports = {
