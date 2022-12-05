@@ -15,16 +15,22 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "accountTypeId",
         onDelete: "CASCADE",
       })
-      
+      //useraccount
+      UserAccount.belongsTo(models.accountsPrivilege,{
+        foreignKey:"accountPrivilegeId",
+        onDelete:"CASCADE",
+        onUpdate:"CASCADE"
+      })
     }
   }
   UserAccount.init({
     email: DataTypes.STRING,
     accountName: DataTypes.STRING,
     phone: DataTypes.STRING,
+    pin: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'UserAccount',
+    modelName: 'UserAccounts',
   });
   return UserAccount;
 };

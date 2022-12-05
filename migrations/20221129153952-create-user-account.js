@@ -24,6 +24,9 @@ module.exports = {
       phone: {
         type: Sequelize.STRING
       },
+      pin:{
+        type:Sequelize.STRING
+      },
       accountTypeId: {
         references:{
           key: "id",

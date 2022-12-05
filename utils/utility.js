@@ -1,3 +1,19 @@
-export function randomName(){
+function randomName(){
     return Math.floor(Math.random(1)*5000);
   }
+
+function enlistEmptyProperties(body){
+  const results = [];
+  Object.entries(body).map((propValue,index)=>{
+    console.log('propValue => ', propValue)
+    if(propValue[1] == ""){
+      results.push(propValue[0] + " is empty");
+    }
+  })
+  return results;
+}
+
+module.exports = {
+  enlistEmptyProperties,
+  randomName
+}
